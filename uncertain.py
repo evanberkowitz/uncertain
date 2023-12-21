@@ -103,9 +103,24 @@ print(electron_mass.mean, electron_mass.uncertainty)
 # 9.1093837015e-31 2.8000000000000004e-40
 ```
 
+We can use [scientific E notation] by passing ``e`` in the format string.
+
+```python
+print(f'{electron_mass:eu3}')
+# 5.10998950000(150)e-1
+```
+
+To mandate a sign even for positive numbers, add a ``+``.
+
+```python
+print(f'{electron_mass:+eu3}')
+# +5.10998950000(150)e-1
+```
+
 
 [Wikipedia]: https://en.wikipedia.org/wiki/Uncertainty#In_measurements
 [NIST]: https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html
+[scientific E notation]: https://en.wikipedia.org/wiki/Scientific_notation#E_notation
 
     '''
 
