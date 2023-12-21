@@ -83,8 +83,12 @@ print(f'{electron_mass:+eu3}')
 # +5.10998950000(150)e-1
 ```
 
+Copyright (C) 2023  Evan Berkowitz, Forschungszentrum Jülich
+
+Licensed under the [GNU GPLv3].
 
 [Wikipedia]: https://en.wikipedia.org/wiki/Uncertainty#In_measurements
 [NIST]: https://physics.nist.gov/cgi-bin/cuu/Info/Constants/definitions.html
 [scientific E notation]: https://en.wikipedia.org/wiki/Scientific_notation#E_notation
+[GNU GPLv3]: https://www.gnu.org/licenses/gpl-3.0.txt
 
