@@ -217,7 +217,19 @@ Licensed under the [GNU GPLv3]
             digits += (u_precision-1 if u_precision else 1)
             uncertainty = int(np.ceil(self.uncertainty / 10**(-digits)))
 
-        return f'{self.mean:{f_sign}.{digits}f}({uncertainty})'
+        # 8.5 ± 0.031 should be 8.500(31)
+        # 8.5 ± 0.31  should be 8.50(31)
+        # but
+        # 8.5 ± 3.1 should be 8.5(3.1), with the decimal point.
+        #
+        #   print(Uncertain(8.5, .031))
+        #   print(Uncertain(8.5, .31))
+        #   print(Uncertain(8.5, 3.1))
+        #
+        if digits > 1:
+            return f'{self.mean:{f_sign}.{digits}f}({uncertainty})'
+        else:
+            return f'{self.mean:{f_sign}.{digits}f}({uncertainty/10:.1f})'
 
     @classmethod
     def from_string(cls, string):
